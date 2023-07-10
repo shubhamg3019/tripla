@@ -1,17 +1,19 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  has_many :sleep_records
+has_many :sleep_records, dependent: :destroy
   has_and_belongs_to_many :followings,
                           class_name: 'User',
                           join_table: :followings,
                           foreign_key: :follower_id,
-                          association_foreign_key: :followed_user_id
+                          association_foreign_key: :followed_user_id,
+                          dependent: :destroy
   has_and_belongs_to_many :followers,
                           class_name: 'User',
                           join_table: :followings,
                           foreign_key: :followed_user_id,
-                          association_foreign_key: :follower_id
+                          association_foreign_key: :follower_id,
+                          dependent: :destroy
   validates :name, presence: true
 
   def following_sleep_records

@@ -74,5 +74,5 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   # Add this line to include your FactoryBot factories
-  Dir[Rails.root.join('spec', 'factories', '**', '*.rb')].sort.each { |f| require f }
+  # Dir[Rails.root.join('spec', 'factories', '**', '*.rb')].sort.each { |f| require f }
 end

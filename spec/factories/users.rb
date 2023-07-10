@@ -2,6 +2,6 @@
 
 FactoryBot.define do
   factory :user do
-    name { 'MyString' }
+    name { Faker::Name.unique.name }
   end
 end

@@ -2,8 +2,8 @@
 
 FactoryBot.define do
   factory :sleep_record do
-    user_id { 1 }
-    asleep_at { '2023-07-10 08:13:55' }
-    awake_at { '2023-07-10 08:13:55' }
+    association :user
+    asleep_at { Faker::Time.between(from: 1.week.ago, to: Time.current) }
+    awake_at { Faker::Time.between(from: asleep_at, to: Time.current) }
   end
 end
