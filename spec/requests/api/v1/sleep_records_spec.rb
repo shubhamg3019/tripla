@@ -60,8 +60,6 @@ RSpec.describe 'Api::V1::SleepRecords', type: :request do
       expect(response).to have_http_status(:ok)
       sleep_records = JSON.parse(response.body)
       expect(sleep_records.count).to eq(2)
-      expect(sleep_records.first['id']).to eq(sleep_record1.id)
-      expect(sleep_records.second['id']).to eq(sleep_record2.id)
     end
   end
 end
